@@ -29,44 +29,46 @@
     <!-- Favicons -->
 </head>
 <body style="over-flow:hidden;">
-<header class="header">
-    <div class="row-fluid" >
-        <div class="col-md-5" style="position:relative;">
-            <a class="logo" href="/">Json.<span style="color:#555;">cn</span></a>
+  <header class="header">
+      <div class="row-fluid" >
+          <div class="col-md-5" style="position:relative;">
+              <a class="logo" href="/">Json.<span style="color:#4A5560;">cn</span></a>
 
-        </div>
-        <nav class="col-md-7" style="padding:10px 0;"  align="right">
-            <div  class="navi">
-                <a href="/" data-placement="bottom">在线解析</a>
+          </div>
+          <nav class="col-md-7" style="padding:10px 0; "  align="right">
+              <div  class="navi" >
+                  <a href="/" data-placement="bottom">在线解析</a>
+                  <a href="http://lab.json.cn/" target="_blank"  data-placement="bottom">
+                    <span class="red">JSON实验室</span>
+                  </a>
+                  <a href="/wiki.html"  data-placement="bottom">什么是Json</a>
+                  <a href="code.html"  data-placement="bottom">Json解析代码</a>
+                  <a href="/component.html"  data-placement="bottom">Json组件</a>
 
-                <a href="/wiki.html"  data-placement="bottom">什么是Json</a>
-                <a href="/code.html"  data-placement="bottom">Json解析代码</a>
-                <a href="/component.html"  data-placement="bottom">Json组件</a>
-
-            </div>
-        </nav>
-        <br style="clear:both;" />
-    </div>
-</header>
+              </div>
+          </nav>
+          <br style="clear:both;" />
+      </div>
+  </header>
 
 
 <main class="row-fluid">
     <div class="col-md-5" style="padding:0;">
-        <textarea id="json-src" placeholder="在此输入json字符串或XML字符串..."   class="form-control"  style="height:553px;padding:0 10px 10px 20px;border:0;border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;border-radius:0;resize: none; outline:none;">{&#13"Json解析":"支持格式化高亮折叠",&#13"支持XML转换":"支持XML转换Json,Json转XML",&#13"Json格式验证":"更详细准确的错误信息"</textarea>
+        <textarea id="json-src" placeholder="在此输入json字符串或XML字符串..."   class="form-control"  style="height:553px;padding:0 10px 10px 20px;border:0;border-right:solid 1px #E5EBEE;border-bottom:solid 1px #eee;border-radius:0;resize: none; outline:none;font-size:12px;">{&#13"Json解析":"支持格式化高亮折叠",&#13"支持XML转换":"支持XML转换Json,Json转XML",&#13"Json格式验证":"更详细准确的错误信息"</textarea>
     </div>
     <div class="col-md-7" style="padding:0;">
-        <div style="padding:10px;font-size:16px;border-bottom:solid 1px #ddd;" class="navi">
+        <div style="padding:10px;border-bottom:solid 1px #eee;font-size:14px;" class="tool">
             <a href="#" class="tip zip" title="压缩"  data-placement="bottom"><i class="fa fa-database"></i></a>
             <a href="#" class="tip xml" title="转XML"  data-placement="bottom"><i class="fa fa-file-excel-o"></i></a>
             <a href="#" class="tip shown"  title="显示行号"  data-placement="bottom"><i class="glyphicon glyphicon-sort-by-order"></i></a>
             <a href="#" class="tip clear" title="清空"  data-placement="bottom"><i class="fa fa-trash"></i></a>
             <a href="#" class="tip save" title="保存"  data-placement="bottom"><i class="fa fa-floppy-o"></i></a>
         </div>
-        <div id="right-box"  style="height:510px;border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;border-radius:0;resize: none;overflow-y:scroll; outline:none;position:relative;">
-            <div id="line-num" style="background-color:#fafafa;padding:0px 8px;float:left;border-right:dashed 1px #eee;display:none;z-index:-1;color:#999;position:absolute;text-align:center;over-flow:hidden;">
+        <div id="right-box"  style="height:510px;border-bottom:solid 1px #E5EBEE;border-radius:0;resize: none;overflow-y:scroll; outline:none;position:relative;font-size:12px;font-family:Menlo,Monaco,Consolas,'微软雅黑', monospace, Arial,sans-serif,'黑体';">
+            <div id="line-num" style="background-color:#fafafa;padding:0px 8px;float:left;border-right:dashed 1px #E5EBEE;display:none;z-index:-1;color:#999;position:absolute;text-align:center;over-flow:hidden;">
                 <div>0</div>
             </div>
-            <div class="ro" id="json-target" style="padding:0px 25px;over">
+            <div class="ro" id="json-target" style="padding:0px 25px;">
             </div>
         </div>
         <form id="form-save" method="POST"><input type="hidden" value="" id="txt-content" name="content"></form>
