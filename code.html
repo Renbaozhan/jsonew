@@ -35,13 +35,15 @@
               <a class="logo" href="/">Json.<span style="color:#555;">cn</span></a>
 
           </div>
-          <nav class="col-md-7" style="padding:10px 0;"  align="right">
-              <div  class="navi">
+          <nav class="col-md-7" style="padding:10px 0; "  align="right">
+              <div  class="navi" >
                   <a href="/" data-placement="bottom">在线解析</a>
-
-                  <a href="/wiki.html"  data-placement="bottom">什么是Json</a>
-                  <a href="/code.html"  data-placement="bottom">Json解析代码</a>
-                  <a href="/component.html"  data-placement="bottom">Json组件</a>
+                  <a href="http://lab.json.cn/" target="_blank"  data-placement="bottom">
+                    <span class="red">JSON实验室</span>
+                  </a>
+                  <a href="/wiki.html"  data-placement="bottom">什么是JSON</a>
+                  <a href="/code.html"  data-placement="bottom">JSON解析代码</a>
+                  <a href="/component.html"  data-placement="bottom">JSON组件</a>
 
               </div>
           </nav>
@@ -67,7 +69,6 @@ var json1 = parse_json_by_eval(jsonstr);
 console.log(json1);
 console.log('value: '+ value);
 執行結果：
-
 { name: 'jifeng', company: 'taobao', value: 2 }
 value: 2
 2.使用JSON.parse
@@ -142,14 +143,14 @@ string oa = o["a"].ToString();
  </code></pre>
  <h4 id="python">Python:</h4><pre class="bg-warning" style="padding:20px;"><code>
 import json
-data= json.loads('{"ID": "2", "IP":"12.12.12.12", "Port": "3000", "Sensor_Count":"1", "Control_Count": "1", "Sensors":{"Sensor_Name": "tem", "Type_Count": "1", "Types":{ "types":["temp","C"],"types":["hum","N"],}},"Controls":["LCD","Relay"] }')
+data= json.loads('{"ID": "2", "IP":"12.12.12.12", "Port": "3000"}')
 print data['ID']
 输出结果:"2"
-data = json.dump(data)
+data = json.dumps(data)
 print data
-输出结果:{"ID": "2", "IP":"12.12.12.12", "Port": "3000", "Sensor_Count":"1", "Control_Count": "1", "Sensors":{"Sensor_Name": "tem", "Type_Count": "1", "Types":{ "types":["temp","C"],"types":["hum","N"],}},"Controls":["LCD","Relay"] }
+输出结果:{"ID": "2", "IP":"12.12.12.12", "Port": "3000"}
 </code></pre>
-<p>如需更多语言，欢迎联系我们添加，站长邮箱：<a href="mailto:4006776@qq.com">4006776@qq.com</a></p>
+<p>如需更多语言，欢迎联系我们</p>
 
                     <div class="clear"></div>
 
@@ -160,7 +161,7 @@ print data
         </div>
     </div>
     <div class="col-md-3" style="padding:40px 20px;">
-        <div  style="padding:20px;margin:20px;line-height:30px;border-left:solid 1px #ddd;border:solid 1px #ddd;border-radius:5px;">
+        <div  style="padding:20px;margin:20px;line-height:30px;border-left:solid 1px #ddd;border:solid 1px #eee;border-radius:2px;">
             <div style="padding:10px;">
                 <h5>快速导航:</h5>
                 <div class="split"></div>
@@ -179,6 +180,7 @@ print data
 
 <footer style="padding:20px;text-align:center;color:#999;">©2014 Json.cn All right reserved.
 <a href="http://www.miitbeian.gov.cn/" style="font-size:12px;" target="_blank">京ICP备15025187号-1</a>
+联系邮箱：4006776@qq.com
 <script>
 var _hmt = _hmt || [];
 (function() {

@@ -3,20 +3,35 @@ body{
   color: #4A5560;
   font-size: 12px;
 }
+::-moz-selection {
+  background: #12c48b;
+  color: #fff;
+  text-shadow: none;
+}
+
+::selection {
+  background: #12c48b;
+  color: #fff;
+  text-shadow: none;
+}
+
 a{
     display: inline-block;
     text-decoration: none;
     font-family: Menlo,Monaco,Consolas,'微软雅黑';
-    color: #4A5560;
+    color: #1BAAE4;
 }
 .green{
     color:#17B272;
 }
 .red{
-    color:#f98280;
+    color:#FF585D;
+}
+.red:hover{
+    color: #f98280;
 }
 .blue{
-    color:#47A7E6;
+    color:#1BAAE4;
 }
 .orange{
   color:#FBC462;
@@ -41,6 +56,9 @@ a:hover{
     font-size: 20px;
     color: #0fd59d;
     padding: 10px;
+}
+.logo:hover{
+    color: #0fd59d;
 }
 .navi{
     padding:5px 20px;
