@@ -54,8 +54,8 @@
 
 
 <main class="row-fluid">
-    <div class="col-md-5" style="padding:0;">
-        <textarea id="json-src" placeholder="在此输入json字符串或XML字符串..."   class="form-control"  style="height:553px;padding:0 10px 10px 20px;border:0;border-right:solid 1px #E5EBEE;border-bottom:solid 1px #eee;border-radius:0;resize: none; outline:none;font-size:12px;">{&#13"Json解析":"支持格式化高亮折叠",&#13"支持XML转换":"支持XML转换Json,Json转XML",&#13"Json格式验证":"更详细准确的错误信息"</textarea>
+    <div class="col-md-5" style="padding:0px;">
+        <textarea id="json-src" placeholder="在此输入json字符串或XML字符串..."   class="form-control"  style="height:553px;padding:0 10px 10px 10px;border:0;border-right:solid 1px #E5EBEE;border-bottom:solid 1px #eee;border-radius:0;resize: none; outline:none;font-size:10px;">{&#13"Json解析":"支持格式化高亮折叠",&#13"支持XML转换":"支持XML转换Json,Json转XML",&#13"Json格式验证":"更详细准确的错误信息"</textarea>
     </div>
     <div class="col-md-7" style="padding:0;">
         <div style="padding:10px;border-bottom:solid 1px #eee;font-size:14px;" class="tool">
@@ -151,15 +151,15 @@ $('.xml').click(function(){
 $('.shown').click(function(){
     if (!shown_flag) {
         renderLine();
-        $('#json-src').attr("style","height:553px;padding:0 10px 10px 40px;border:0;border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;border-radius:0;resize: none; outline:none;");
-        $('#json-target').attr("style","padding:0px 50px;");
+        $('#json-src').attr("style","height:553px;padding:0 10px 10px 40px;border:0;border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;border-radius:0;resize: none; outline:none;font-size:10px;");
+        $('#json-target').attr("style","padding:0px 40px;");
         $('#line-num').show();
         $('.numberedtextarea-line-numbers').show();
         shown_flag = true;
         $(this).attr('style','color:#15b374;');
     }else{
-        $('#json-src').attr("style","height:553px;padding:0 10px 10px 20px;border:0;border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;border-radius:0;resize: none; outline:none;");
-        $('#json-target').attr("style","padding:0px 20px;");
+        $('#json-src').attr("style","height:553px;padding:0 10px 10px 20px;border:0;border-right:solid 1px #ddd;border-bottom:solid 1px #ddd;border-radius:0;resize: none; outline:none;font-size:10px;");
+        $('#json-target').attr("style","padding:0px 10px;");
         $('#line-num').hide();
         $('.numberedtextarea-line-numbers').hide();
         shown_flag = false;

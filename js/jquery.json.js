@@ -55,7 +55,7 @@ var JSONFormat = (function(){
         }
         return '<span class="json_string">"' + object + '"</span>';
     }
-    
+
     function _format_array(object, indent_count){
         var tmp_array = [];
         for(var i = 0, size = object.length; i < size; ++i){
@@ -110,6 +110,7 @@ var JSONFormat = (function(){
         '.json_null{color: #f1592a;font-weight:bold;}',
         '.json_string{ color: #3ab54a;font-weight:bold;}',
         '.json_number{ color: #25aae2;font-weight:bold;}',
+        '.json_boolean{ color: #f98280;font-weight:bold;}',
         '.json_link{ color: #717171;font-weight:bold;}',
         '.json_array_brackets{}');
 
@@ -139,9 +140,9 @@ function hide(obj){
     }else{
         obj.parentNode.innerHTML = '<i  style="cursor:pointer;" class="fa fa-plus-square-o" onclick="show(this)"></i>Object{...}';
     }
-    
+
 }
-    
+
 function show(obj){
     var innerHtml = obj.parentNode.getAttribute('data-inner');
     obj.parentNode.innerHTML = innerHtml;
