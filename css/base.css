@@ -3,7 +3,7 @@ body{
   color: #4A5560;
   font-size: 12px;
 }
-::-moz-selection {
+/*::-moz-selection {
   background: #12c48b;
   color: #fff;
   text-shadow: none;
@@ -13,7 +13,7 @@ body{
   background: #12c48b;
   color: #fff;
   text-shadow: none;
-}
+}*/
 
 a{
     display: inline-block;
