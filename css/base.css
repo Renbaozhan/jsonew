@@ -1,7 +1,12 @@
+@charset "UTF-8";
+html{
+    height: 100%;
+}
 body{
-  font-family:Tahoma,Verdana,Menlo,Monaco,Consolas,"Helvetica Neue",Helvetica,"Courier New",'微软雅黑', monospace, Arial,sans-serif,'幼圆','黑体';
+  font-family:Consolas,Helvetica,monospace, Tahoma,"幼圆","微软雅黑";
   color: #4A5560;
   font-size: 12px;
+  height: 100%;
 }
 /*::-moz-selection {
   background: #12c48b;
@@ -18,7 +23,6 @@ body{
 a{
     display: inline-block;
     text-decoration: none;
-    font-family: Menlo,Monaco,Consolas,'微软雅黑';
     color: #1BAAE4;
 }
 .green{
@@ -54,6 +58,7 @@ a:hover{
     text-decoration: none;
     font-weight: bold;
     font-size: 20px;
+    font-family: monospace;
     color: #0fd59d;
     padding: 10px;
 }
@@ -63,11 +68,26 @@ a:hover{
 .navi{
     padding:5px 20px;
     font-size:12px;
-    font-weight:bold;font-family:Menlo,Monaco,Consolas,"Courier New",monospace, "Helvetica Neue",Helvetica,Arial,sans-serif,'幼圆';
+    font-weight:bold;
 }
 .navi a{
     padding: 0px 20px;
     color: #4A5560;
+}
+.json-src{
+    height:100%;min-height:550px;
+    background-color:#f6f6f6;padding:0 10px 10px 10px;
+    border:0;border-right:solid 1px #E5EBEE;border-bottom:solid 1px #eee;border-radius:0;
+    esize: none; outline:none;font-size:10px;
+}
+.tool{
+    padding:10px;
+    height: 40px;
+    border-bottom:solid 1px #eee;
+    background-color:#fff;
+    opacity: 0.9;
+    width:100%;font-size:12px;
+    z-index:100;
 }
 .tool a{
     padding: 0px 20px;
