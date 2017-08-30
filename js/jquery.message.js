@@ -12,7 +12,7 @@
         $("body").append('<div style="clear:both;"></div><div id="jquery-beauty-msg"></div>');
         container=$('#jquery-beauty-msg');
     }
-    var containerStyle='color:#e1282b;font-family:"微软雅黑";font-weight:bold;font-size:20px;text-shadow:5px 5px 10px #e1282b;'
+    var containerStyle='color:#e1282b;font-family:"微软雅黑";font-weight:bold;font-size:20px;text-shadow:5px 5px 10px #eee;'
             +'text-align:center;margin:0;padding-top:15%;width:100%;word-break:break-all;z-index:100000;';
 var closeFlag=false;
 var timer=0;
