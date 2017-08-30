@@ -2,8 +2,11 @@
 html{
     height: 100%;
 }
+html, body {
+    height: 100%;
+}
 body{
-  font-family:Consolas,Helvetica,monospace, Tahoma,"幼圆","微软雅黑";
+  font-family:menlo,monospace, Tahoma,"微软雅黑","幼圆";
   color: #4A5560;
   font-size: 12px;
   height: 100%;
@@ -24,6 +27,7 @@ a{
     display: inline-block;
     text-decoration: none;
     color: #1BAAE4;
+    font-family: monospace, Tahoma,'微软雅黑';
 }
 .green{
     color:#17B272;

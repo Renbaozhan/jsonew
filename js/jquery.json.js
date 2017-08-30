@@ -111,7 +111,7 @@ var JSONFormat = (function(){
         '.json_string{ color: #3ab54a;font-weight:bold;}',
         '.json_number{ color: #25aae2;font-weight:bold;}',
         '.json_boolean{ color: #f98280;font-weight:bold;}',
-        '.json_link{ color: #717171;font-weight:bold;}',
+        '.json_link{ color: #61D2D6;font-weight:bold;}',
         '.json_array_brackets{}');
 
     var _JSONFormat = function(origin_data){
