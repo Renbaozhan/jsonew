@@ -222,10 +222,10 @@ $('.save').click(function(){
 });
 $('.copy').click(function(){
     //$.msg("成功复制到粘贴板","color:#00D69C;");
-    $(this).tooltip('toggle')
-          .attr('data-original-title', "复制成功！")
-          .tooltip('fixTitle')
-          .tooltip('toggle');
+    // $(this).tooltip('toggle')
+    //       .attr('data-original-title', "复制成功！")
+    //       .tooltip('fixTitle')
+    //       .tooltip('toggle');
 });
 var clipboard = new Clipboard('.copy');
 $('#json-src').keyup();
