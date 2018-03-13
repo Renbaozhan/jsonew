@@ -48,6 +48,10 @@ var JSONFormat = (function(){
     }
 
     function _format_string(object){
+        console.log(object);
+        if(!isNaN(object)){
+            return _format_number(object);
+        }
         object = object.replace(/\</g,"&lt;");
         object = object.replace(/\>/g,"&gt;");
         if(0 <= object.search(/^http/)){
@@ -117,7 +121,7 @@ var JSONFormat = (function(){
     var _JSONFormat = function(origin_data){
         //this.data = origin_data ? origin_data :
             //JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
-        this.data = JSON.parse(origin_data);
+        this.data = JSON.parse(origin_data.replace(/([\[:])?(\d{12,})([,\}\]])/g, "$1\"$2\"$3"));
     };
 
     _JSONFormat.prototype = {
