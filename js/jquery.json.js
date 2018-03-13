@@ -121,7 +121,7 @@ var JSONFormat = (function(){
         //this.data = origin_data ? origin_data :
             //JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
         var tmp_bigNums = origin_data.match(/([\[:])?(\d{15,})([,\}\]])/);
-        if(tmp_bigNums.length>2){
+        if(tmp_bigNums!=null && tmp_bigNums.length>2){
             _bigNums.push(tmp_bigNums[2]);
         }
         this.data = JSON.parse(origin_data.replace(/([\[:])?(\d{15,})([,\}\]])/g, "$1\"$2\"$3"));
