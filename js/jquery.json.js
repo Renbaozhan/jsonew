@@ -48,7 +48,7 @@ var JSONFormat = (function(){
     }
 
     function _format_string(object){
-        if(!isNaN(object) && object.length>15 && $.inArray(object, _bigNums)){
+        if(!isNaN(object) && object.length>=15 && $.inArray(object, _bigNums)>-1){
             return _format_number(object);
         }
         object = object.replace(/\</g,"&lt;");
@@ -120,6 +120,7 @@ var JSONFormat = (function(){
     var _JSONFormat = function(origin_data){
         //this.data = origin_data ? origin_data :
             //JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
+        _bigNums = [];
         var tmp_bigNums = origin_data.match(/([\[:])?(\d{15,})([,\}\]])/);
         if(tmp_bigNums!=null && tmp_bigNums.length>2){
             _bigNums.push(tmp_bigNums[2]);
