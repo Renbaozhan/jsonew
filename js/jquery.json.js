@@ -9,7 +9,7 @@
  */
 var JSONFormat = (function(){
     var _toString = Object.prototype.toString;
-
+    var _bigNums = [];
     function format(object, indent_count){
         var html_fragment = '';
         switch(_typeof(object)){
@@ -48,8 +48,7 @@ var JSONFormat = (function(){
     }
 
     function _format_string(object){
-        console.log(object);
-        if(!isNaN(object)){
+        if(!isNaN(object) && object.length>15 && $.inArray(object, _bigNums)){
             return _format_number(object);
         }
         object = object.replace(/\</g,"&lt;");
@@ -121,7 +120,11 @@ var JSONFormat = (function(){
     var _JSONFormat = function(origin_data){
         //this.data = origin_data ? origin_data :
             //JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
-        this.data = JSON.parse(origin_data.replace(/([\[:])?(\d{12,})([,\}\]])/g, "$1\"$2\"$3"));
+        var tmp_bigNums = origin_data.match(/([\[:])?(\d{15,})([,\}\]])/);
+        if(tmp_bigNums.length>2){
+            _bigNums.push(tmp_bigNums[2]);
+        }
+        this.data = JSON.parse(origin_data.replace(/([\[:])?(\d{15,})([,\}\]])/g, "$1\"$2\"$3"));
     };
 
     _JSONFormat.prototype = {
