@@ -126,7 +126,7 @@ var JSONFormat = (function(){
         var tmp_bigNums = check_data.match(bigNum_regex);
         if(tmp_bigNums!=null && tmp_bigNums.length>2){
             _bigNums.push(tmp_bigNums[2]);
-            origin_data=origin_data.replace(bigNum_regex, "$1\"$2\"$3");
+            origin_data=origin_data.replace(/([\[:])?(\d{15,})([,\}\]])/, "$1\"$2\"$3");
         }
         this.data = JSON.parse(origin_data);
     };
