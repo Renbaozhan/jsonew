@@ -121,11 +121,14 @@ var JSONFormat = (function(){
         //this.data = origin_data ? origin_data :
             //JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
         _bigNums = [];
-        var tmp_bigNums = origin_data.match(/([\[:])?(\d{15,})([,\}\]])/);
+        var check_data = origin_data.replace(/\s/g,'');
+        var bigNum_regex = /([\[:]){1}(\d{15,})([,\}\]])/;
+        var tmp_bigNums = check_data.match(bigNum_regex);
         if(tmp_bigNums!=null && tmp_bigNums.length>2){
             _bigNums.push(tmp_bigNums[2]);
+            origin_data=origin_data.replace(bigNum_regex, "$1\"$2\"$3");
         }
-        this.data = JSON.parse(origin_data.replace(/([\[:])?(\d{15,})([,\}\]])/g, "$1\"$2\"$3"));
+        this.data = JSON.parse(origin_data);
     };
 
     _JSONFormat.prototype = {
