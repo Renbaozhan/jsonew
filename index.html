@@ -216,8 +216,8 @@ $('.save').click(function(){
     // $('#txt-content').val(content);
     //var text = "hell world";
     var html = $('#json-target').html().replace(/\n/g,'<br/>').replace(/\n/g,'<br>');
-    var text = $('#json-target').innerText();
-    var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+    var text = $('#json-target').innerText().replace('　　', '    ');
+    var blob = new Blob([text], {type: "application/json;charset=utf-8"});
     saveAs(blob, "format.json");
 });
 $('.copy').click(function(){
