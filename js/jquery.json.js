@@ -80,7 +80,7 @@ var JSONFormat = (function(){
     }
 
     function indent_tab(indent_count){
-        return (new Array(indent_count + 1)).join('　　');
+        return (new Array(indent_count + 1)).join('    ');
     }
 
     function _typeof(object){
