@@ -122,12 +122,16 @@ var JSONFormat = (function(){
             //JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
         _bigNums = [];
         var check_data = origin_data.replace(/\s/g,'');
-        var bigNum_regex = /([\[:]){1}(\d{15,})([,\}\]])/;
-        var tmp_bigNums = check_data.match(bigNum_regex);
-        if(tmp_bigNums!=null && tmp_bigNums.length>2){
-            _bigNums.push(tmp_bigNums[2]);
-            origin_data=origin_data.replace(/([\[:])?(\d{15,})([,\}\]])/g, "$1\"$2\"$3");
-        }
+        var bigNum_regex = /([\[:]){1}(\d{16,})([,\}\]])/g;
+        //var tmp_bigNums = check_data.match(bigNum_regex);
+        var m;
+        do {
+            m = bigNum_regex.exec(check_data);
+            if (m) {
+              _bigNums.push(m[2]);
+              origin_data=origin_data.replace(/([\[:])?(\d{16,})\s?([,\}\]])/, "$1\"$2\"$3");
+            }
+        } while (m);
         this.data = JSON.parse(origin_data);
     };
 
