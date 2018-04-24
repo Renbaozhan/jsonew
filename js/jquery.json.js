@@ -129,7 +129,7 @@ var JSONFormat = (function(){
             m = bigNum_regex.exec(check_data);
             if (m) {
               _bigNums.push(m[2]);
-              origin_data=origin_data.replace(/([\[:])?(\d{16,})\s?([,\}\]])/, "$1\"$2\"$3");
+              origin_data=origin_data.replace(/([\[:])?(\d{16,})\s*([,\}\]])/, "$1\"$2\"$3");
             }
         } while (m);
         this.data = JSON.parse(origin_data);
