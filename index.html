@@ -236,7 +236,8 @@ $('.save').click(function(){
     var html = $('#json-target').html().replace(/\n/g,'<br/>').replace(/\n/g,'<br>');
     var text = $('#json-target').innerText().replace('　　', '    ');
     var blob = new Blob([text], {type: "application/json;charset=utf-8"});
-    saveAs(blob, "format.json");
+    var timestamp=new Date().getTime();
+    saveAs(blob, "format."+timestamp+".json");
 });
 $('.copy').click(function(){
     //$.msg("成功复制到粘贴板","color:#00D69C;");
