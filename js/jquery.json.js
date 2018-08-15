@@ -122,7 +122,7 @@ var JSONFormat = (function(){
             //JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
         _bigNums = [];
         var check_data = origin_data.replace(/\s/g,'');
-        var bigNum_regex = /([\[:]){1}(\d{16,})([,\}\]])/g;
+        var bigNum_regex = /[^\\][\"]([\[:]){1}(\d{16,})([,\}\]])/g;
         //var tmp_bigNums = check_data.match(bigNum_regex);
         var m;
         do {
