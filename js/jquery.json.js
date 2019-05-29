@@ -48,9 +48,6 @@ var JSONFormat = (function(){
     }
 
     function _format_string(object){
-        if(!isNaN(object) && object.length>=15 && $.inArray(object, _bigNums)>-1){
-            return _format_number(object);
-        }
         object = object.replace(/\</g,"&lt;");
         object = object.replace(/\>/g,"&gt;");
         if(0 <= object.search(/^http/)){
@@ -118,20 +115,8 @@ var JSONFormat = (function(){
         '.json_array_brackets{}');
 
     var _JSONFormat = function(origin_data){
-        //this.data = origin_data ? origin_data :
-            //JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
-        _bigNums = [];
-        var check_data = origin_data.replace(/\s/g,'');
-        var bigNum_regex = /([\[:]){1}([-\.\d]{16,})([,\}\]])/g;
-        //var tmp_bigNums = check_data.match(bigNum_regex);
-        var m;
-        do {
-            m = bigNum_regex.exec(check_data);
-            if (m) {
-              _bigNums.push(m[2]);
-              origin_data=origin_data.replace(/([\[:])?([-\.\d]{16,})\s*([,\}\]])/, "$1\"$2\"$3");
-            }
-        } while (m);
+        // this.data = origin_data ? origin_data :
+        //     JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
         this.data = JSON.parse(origin_data);
     };
 
