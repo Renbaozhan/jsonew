@@ -8,7 +8,7 @@ html, body {
 body{
   font-family:menlo,monospace, Tahoma,"微软雅黑","幼圆";
   color: #4A5560;
-  font-size: 12px;
+  font-size: 1.2vh;
   height: 100%;
 }
 /*::-moz-selection {
@@ -61,7 +61,7 @@ a:hover{
 .logo{
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 2vh;
     font-family: monospace;
     color: #0fd59d;
     padding: 10px;
@@ -71,7 +71,6 @@ a:hover{
 }
 .navi{
     padding:5px 20px;
-    font-size:12px;
     font-weight:bold;
 }
 .navi a{
@@ -82,14 +81,14 @@ a:hover{
     height:100%;min-height:550px;
     background-color:#f6f6f6;padding:0 10px 10px 10px;
     border:0;border-right:solid 1px #E5EBEE;border-bottom:solid 1px #eee;border-radius:0;
-    esize: none; outline:none;font-size:10px;
+    esize: none; outline:none;font-size:1.2vh;
 }
 .tool{
     padding:10px;
     height: 40px;
     border-bottom:solid 1px #eee;
     background-color:#fff;
-    width:100%;font-size:12px;
+    width:100%;font-size:1.2vh;
     z-index:100;
 }
 .tool a{
@@ -99,3 +98,4 @@ a:hover{
 .navi a:hover{
     color: #888;
 }
+footer{margin-top: 1vh;font-size: 1vh;}
