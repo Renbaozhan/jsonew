@@ -57,13 +57,10 @@ a:hover{
 .header{
     border-bottom: solid 1px #E5EBEE;
     padding: 0px;
-    font-size: 1.4vh;
 }
 .logo{
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.5vw;
-    font-family: monospace;
     color: #0fd59d;
     padding: 10px;
 }
