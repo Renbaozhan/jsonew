@@ -63,6 +63,7 @@ a:hover{
     font-weight: bold;
     color: #0fd59d;
     padding: 10px;
+    font-size: calc(8px + 1vw);
 }
 .logo:hover{
     color: #0fd59d;
