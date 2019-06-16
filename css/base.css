@@ -8,7 +8,7 @@ html, body {
 body{
   font-family:menlo,monospace, Tahoma,"微软雅黑","幼圆";
   color: #4A5560;
-  font-size: 1.2vh;
+  font-size:calc(6px + 1vh);
   height: 100%;
 }
 /*::-moz-selection {
