@@ -6,7 +6,7 @@ html, body {
     height: 100%;
 }
 body{
-  font-family:menlo,monospace, Tahoma,"微软雅黑","幼圆";
+  font-family:Tahoma,"微软雅黑",menlo,monospace, Tahoma,"微软雅黑","幼圆";
   color: #4A5560;
   font-size:calc(6px + 1vh);
   height: 100%;
