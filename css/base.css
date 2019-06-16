@@ -97,4 +97,4 @@ a:hover{
 .navi a:hover{
     color: #888;
 }
-footer{margin-top: 1vh;font-size: 1vh;}
+footer{margin-top: 1vh;font-size:calc(2px + 1vh);}
