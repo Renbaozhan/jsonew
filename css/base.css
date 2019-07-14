@@ -8,8 +8,17 @@ html, body {
 body{
   font-family:menlo,monospace, Tahoma,"微软雅黑","幼圆";
   color: #4A5560;
-  font-size:calc(6px + 1vh);
+  --height:calc(1vh / 3);
+  --width:calc(1vw / 3);
+  --target: calc(var(--height) + var(--width));
+  font-size: calc(var(--target) + 6px);
   height: 100%;
+}
+.common-font-size{
+  --height:calc(1vh / 3);
+  --width:calc(1vw / 3);
+  --target: calc(var(--height) + var(--width));
+  font-size: calc(var(--target) + 6px);
 }
 /*::-moz-selection {
   background: #12c48b;
@@ -59,12 +68,15 @@ a:hover{
     padding: 0px;
 }
 .logo{
+    --height:calc(1vh / 3);
+    --width:calc(1vw / 3);
+    --target: calc(var(--height) + var(--width));
+    font-size: calc(var(--target) + 12px);
     text-decoration: none;
     font-weight: bold;
     color: #0fd59d;
     padding: 10px;
     font-family: Tahoma;
-    font-size: calc(12px + 1vh);
 }
 .logo:hover{
     color: #0fd59d;
