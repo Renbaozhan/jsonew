@@ -183,7 +183,8 @@ $('.zip').click(function(){
     if (zip_flag) {
         $('#json-src').keyup();
     }else{
-        $('#json-target').html(current_json_str);
+        //$('#json-target').html(current_json_str.replace(/</g,"&lt;").replace(/>/g,"&gt;"));
+        $('#json-target').html("<xmp>"+current_json_str+"</xmp>");
         zip_flag = true;
         $(this).attr('style','color:#15b374;');
     }
