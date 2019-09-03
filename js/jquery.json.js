@@ -122,7 +122,7 @@ var JSONFormat = (function(){
     var _JSONFormat = function(origin_data){
         // this.data = origin_data ? origin_data :
         //     JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
-        let stringedJSON = origin_data.replace(/([^\\]\"):\s*([-+Ee0-9.]+)/g, '$1: "jsondotcnprefix$2"');
+        let stringedJSON = origin_data.replace(/([^\\]\"):\s*(\[)?([-+Ee0-9.]+)/g, '$1: $2"jsondotcnprefix$3"');
         this.data = JSON.parse(stringedJSON, (key, value) => {
           // only changing strings
           if (typeof value !== 'string') return value;
