@@ -23,6 +23,7 @@ var JSONFormat = (function(){
                 html_fragment = _format_number(object);
                 break;
             case 'String' :
+                object  = object.replace(/\s/g,"&nbsp;");
                 html_fragment = _format_string(object);
                 break;
             case 'Array' :
