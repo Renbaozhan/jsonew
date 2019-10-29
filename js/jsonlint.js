@@ -335,7 +335,7 @@ var jsonlint = function() {
                                     A = [];
                                     for (x in g[s]) this.terminals_[x] && x > 2 && A.push("'" + this.terminals_[x] + "'");
                                     var B = "";
-                                    this.lexer.showPosition ? B = "在第"+ (i + 1)+"行发生解析错误 "+ ":<br/>" + this.lexer.showPosition() + "<br/>此处缺少" + A.join(", ") + "字符, 实际上确是一个 '" + this.terminals_[q] + "'" : B = "在第"+ (i + 1)+"行发生解析错误 " + ": 本应该是 " + (q == 1 ? "结尾输入" : "'" + (this.terminals_[q] || q) + "'"), this.parseError(B, {
+                                    this.lexer.showPosition ? B = "在第"+ (i + 1)+"行发生解析错误 "+ ":<br/>" + this.lexer.showPosition() + "<br/>此处缺少" + A.join(", ") + "字符, 实际上是一个 '" + this.terminals_[q] + "'" : B = "在第"+ (i + 1)+"行发生解析错误 " + ": 本应该是 " + (q == 1 ? "结尾输入" : "'" + (this.terminals_[q] || q) + "'"), this.parseError(B, {
                                         text: this.lexer.match,
                                         token: this.terminals_[q] || q,
                                         line: this.lexer.yylineno,
