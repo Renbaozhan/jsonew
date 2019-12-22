@@ -125,16 +125,25 @@ var JSONFormat = (function(){
         // this.data = origin_data ? origin_data :
         //     JSON && JSON.parse ? JSON.parse(origin_data) : eval('(' + origin_data + ')');
         let stringedJSON = origin_data.replace(/([^\\]\"):\s*(\[)?([-+Ee0-9.]+)/g, '$1: $2"jsondotcnprefix$3"');
-        this.data = JSON.parse(stringedJSON, (key, value) => {
-          // only changing strings
-          if (typeof value !== 'string') return value;
-          // only changing number strings
-          if (!value.startsWith('jsondotcnprefix')) return value;
-          // chop off the prefix
-          value = value.slice('jsondotcnprefix'.length);
-          // pick your favorite arbitrary-precision library
-          return new BigNumber(value);
-        });
+        try {
+          var temp = JSON.parse(stringedJSON, (key, value) => {
+            // only changing strings
+            if (typeof value !== 'string') return value;
+            // only changing number strings
+            if (!value.startsWith('jsondotcnprefix')) return value;
+            // chop off the prefix
+            value = value.slice('jsondotcnprefix'.length);
+            // pick your favorite arbitrary-precision library
+            return new BigNumber(value);
+          });
+          this.data = temp;
+        } catch (e) {
+          this.data = JSON.parse(origin_data);
+          console.log(e);
+        } finally {
+
+        }
+
 
         //this.data = o;//JSON.parse(origin_data);
     };
