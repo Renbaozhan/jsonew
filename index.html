@@ -221,17 +221,6 @@ $('.clear').click(function(){
      $('#json-src').val('');
      $('#json-target').html('');
 });
-var canvas = document.createElement('canvas');
-var ctx = canvas.getContext("2d");
-ctx.font = "24px Arial";
-ctx.fillText("Hello Panda",22,33);
-ctx.moveTo(0,60);
-ctx.lineTo(100,60);
-ctx.stroke();
-//大家就随意创建一个canvas标签就是
-var b64 = canvas.toDataURL().replace("data:image/png;base64,","");
-//然后用toDataURL方法对生成的canvas图像进行64码进制转换
-console.log(b64);
 $('.share').click(function(){
 
     var jqxhr = $.post("/shares/",{"content":current_json_str}, function(data) {
@@ -242,11 +231,12 @@ $('.share').click(function(){
             console.log(data);
      })
     .error(function(data) {
-        $('#hidden-message-box').show();
         if (data.status<=400) {
             $('#hidden-message').html(data.responseText);
+            $('#hidden-message-box').show();
         } else {
             $('#hidden-message').html("服务器升级中...此功能暂不可用.");
+            $('#hidden-message-box').show();
         }
         setTimeout(function(){
             $('#hidden-message-box').hide();
