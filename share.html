@@ -20,7 +20,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/base.css" rel="stylesheet">
-    <style></style>
+    <style>body{font-size: font-size: calc(var(--target) + 7px);}</style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -29,36 +29,29 @@
     <!-- Favicons -->
 </head>
 <body style="over-flow:hidden;">
-  <header class="header">
-      <div class="row-fluid" >
-          <div class="col-md-5" style="position:relative;">
-              <a class="logo" href="/">
+  <header class="header" style="text-align:center;margin:auto;">
+      <div style="text-align:left;margin-left:20px;">
+              <a class="logo" href="/" style="font-size:calc(var(--target) + 18px);">
                 Json.<span style="color:#4A5560;">cn</span></a>
-
-          </div>
-          <nav class="col-md-7" style="padding:10px 0; "  align="right">
-              <div  class="navi" >
-                  <a href="/" data-placement="bottom">在线解析</a>
-                  <!--<a href="http://lab.json.cn/" target="_blank"  data-placement="bottom">
-                    <span class="red">JSON实验室</span>
-                </a>-->
-                  <a href="/wiki.html"  data-placement="bottom">什么是JSON</a>
-                  <a href="/code.html"  data-placement="bottom">JSON解析代码</a>
-                  <a href="/component.html"  data-placement="bottom">JSON组件</a>
-
-              </div>
-          </nav>
-          <br style="clear:both;" />
       </div>
   </header>
 
-
+  <div class="alert alert-warning alert-dismissible" role="alert" style="margin-bottom:0;padding:10px 2vw;font-size: calc(var(--target) + 4px);">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <p><i class="fa fa-bell" aria-hidden="true"></i>
+        隐私保护声明：<span id="privacy-declare">数据已经上传至Json.cn服务器，仅用于生成此链接，
+            <span id="left-min" class="red">60分</span>
+            <span id="left-sec" class="red">60秒</span>
+            后自动删除此数据，此链接内容将不可见</span>
+        <button data-loading-text="处理中..." role="button"
+        class="btn btn-danger delete" style="background:#FF585D;font-size: calc(var(--target) + 4px);" href="#">
+            立即删除
+        </button>
+    </p>
+  </div>
 <main class="row-fluid" style="height:85%;min-height:550px;">
-    <div class="col-md-5" style="padding:0px;height:100%;">
-        <textarea id="json-src" placeholder="在此输入json字符串或XML字符串..."   class="form-control common-font-size"
-        style="height:100%;height: 87vh;min-height:520px;padding:10px 10px 10px 30px;border:0;border-right:solid 1px #E5EBEE;border-bottom:solid 1px #eee;border-radius:0;resize: none; outline:none;"></textarea>
-    </div>
-    <div class="col-md-7" style="padding:0;position:relative;height:100%;">
+
+    <div class="col-md-12" style="padding:0;position:relative;height:100%;">
         <div  class="tool" style="position:absolute;">
             <a href="#" class="tip zip" title="压缩"  data-placement="bottom"><i class="fa fa-database"></i></a>
             <a href="#" class="tip xml" title="转XML"  data-placement="bottom"><i class="fa fa-file-excel-o"></i></a>
@@ -67,21 +60,8 @@
             <a href="#" class="tip save" title="保存"  data-placement="bottom"><i class="fa fa-download"></i></a>
             <a href="#" class="tip copy" title="复制" data-clipboard-target="#json-target"  data-placement="bottom"><i class="fa fa-copy"></i></a>
             <a href="#" class="tip compress" title="折叠"  data-placement="bottom"><i class="fa fa-compress"></i></a>
-            <a href="#" class="tip share" title="分享"  data-placement="bottom" ><i class="fa fa-share-alt-square"></i></a>
         </div>
         <div id="right-box" class="common-font-size"  style="width:100%;height: 87vh;min-height:520px;border:solid 1px #f6f6f6;border-radius:0;resize: none;overflow-y:scroll; outline:none;position:relative;padding-top:40px;">
-            <div id="hidden-message-box"
-            class="alert alert-danger alert-dismissible" role="alert"
-            style="display:none;margin-bottom:0;padding:10px 2vw;font-size: calc(var(--target) + 4px);">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <p><i class="fa fa-bell" aria-hidden="true"></i>
-                  提示：
-                  <span id="hidden-message">
-                      默认警告
-                  </span>
-
-              </p>
-            </div>
             <div id="line-num" style="background-color:#fafafa;padding:0px 8px;float:left;border-right:dashed 1px #E5EBEE;display:none;z-index:-1;color:#999;position:absolute;text-align:center;over-flow:hidden;">
                 <div>0</div>
             </div>
@@ -93,6 +73,7 @@
 </main>
 <link href="/css/jquery.numberedtextarea.css" rel="stylesheet">
 <script src="/js/jquery.min.js"></script>
+<script src="/js/leftTime.min.js"></script>
 <script src="/js/jquery.message.js"></script>
 <script src="/js/bignumber.min.js"></script>
 <script src="/js/jquery.json.js"></script>
@@ -106,14 +87,54 @@
 <script src="/js/jquery.numberedtextarea.js"></script>
 <script type="text/javascript">
 $('textarea').numberedtextarea();
+(function ($) {
+    $.getParam = function (key) {
+        var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+})(jQuery);
 var current_json = '';
 var current_json_str = '';
 var xml_flag = false;
 var zip_flag = false;
 var shown_flag = false;
 var compress_flag = false;
+var left_seconds = 3600;
+var json_data;
+var left_timer;
 $('.tip').tooltip();
-function init(){
+var k = $.getParam('k');
+$.get("/shares?k="+k, function(data) {
+      var k = data;
+})
+.success(function(data) {
+    init(data);
+ })
+.error(function(data) {
+    console.log("failed to share."+data)
+});
+
+var left_timer = $.leftTime(left_seconds, function (d) {
+    if (isNaN(left_seconds) || left_seconds<0) {
+        resetTimer();
+    }
+    var current_timestamp = new Date().getTime() / 1000;
+    if (json_data != undefined) {
+        left_seconds = 3600 - parseInt(current_timestamp - json_data.create_time);
+    }
+    var left_min = parseInt(left_seconds / 60);
+    var left_sec = parseInt(left_seconds % 60);
+    $('#left-min').html(left_min + "分");
+    $('#left-sec').html(left_sec + "秒");
+}, true);
+function resetTimer(){
+    left_seconds = 0;
+    window.clearInterval(left_timer);
+    $('#left-min').html(0 + "分");
+    $('#left-sec').html(0 + "秒");
+}
+function init(data){
     xml_flag = false;
     zip_flag = false;
     shown_flag = false;
@@ -121,13 +142,12 @@ function init(){
     renderLine();
     $('.xml').attr('style','color:#999;');
     $('.zip').attr('style','color:#999;');
-
-}
-$('#json-src').keyup(function(){
-    init();
-    var content = $.trim($(this).val());
+    if(data != undefined){
+        json_data = data;
+    }
+    var content = json_data.content;
     var result = '';
-    if (content!='') {
+    if (content!='' && content!=undefined) {
         //如果是xml,那么转换为json
         if (content.substr(0,1) === '<' && content.substr(-1,1) === '>') {
             try{
@@ -153,13 +173,18 @@ $('#json-src').keyup(function(){
 
         $('#json-target').html(result);
     }else{
+        $('.delete').addClass('disabled'); // Disables visually
+        $('.delete').prop('disabled', true); // Disables visually + functionally
+        $('.delete').html("数据不存在");
+        $('#privacy-declare').html("数据已从服务器删除，当前链接内容已经无法查看。点击<a href='/'>返回首页</a>");
         $('#json-target').html('');
     }
 
-});
+}
+
 $('.xml').click(function(){
     if (xml_flag) {
-        $('#json-src').keyup();
+        init();
     }else{
         var result = $.json2xml(current_json);
         $('#json-target').html('<textarea style="width:100%;position:absolute;height: 80vh;min-height:480px;border:0;resize:none;">'+result+'</textarea>');
@@ -193,7 +218,7 @@ function renderLine(){
 }
 $('.zip').click(function(){
     if (zip_flag) {
-        $('#json-src').keyup();
+        init();
     }else{
         //$('#json-target').html(current_json_str.replace(/</g,"&lt;").replace(/>/g,"&gt;"));
         $('#json-target').html("<xmp>"+current_json_str+"</xmp>");
@@ -221,34 +246,25 @@ $('.clear').click(function(){
      $('#json-src').val('');
      $('#json-target').html('');
 });
-var canvas = document.createElement('canvas');
-var ctx = canvas.getContext("2d");
-ctx.font = "24px Arial";
-ctx.fillText("Hello Panda",22,33);
-ctx.moveTo(0,60);
-ctx.lineTo(100,60);
-ctx.stroke();
-//大家就随意创建一个canvas标签就是
-var b64 = canvas.toDataURL().replace("data:image/png;base64,","");
-//然后用toDataURL方法对生成的canvas图像进行64码进制转换
-console.log(b64);
-$('.share').click(function(){
+$('.delete').click(function(){
+      var $btn = $(this).button('loading');
+      $(this).addClass('disabled'); // Disables visually
+      $(this).prop('disabled', true); // Disables visually + functionally
+      $.ajax({
+            url: "/shares?k="+k,
+            type: 'DELETE',
+            success: function(result) {
+                $('#json-target').html('');
+                $btn.html('删除成功');
+                resetTimer();
+            },
+            error:function(result) {
+                $btn.button('reset');
+            },
+        });
 
-    var jqxhr = $.post("/shares/",{"content":current_json_str}, function(data) {
-          var k = data;
-    })
-    .success(function(data) {
-        window.location.href = "share.html?k="+data;
-            console.log(data);
-     })
-    .error(function(data) {
-        $('#hidden-message-box').show();
-        $('#hidden-message').html(data.responseText);
-        setTimeout(function(){
-            $('#hidden-message-box').hide();
-        }, 3000);
-    })
-    .complete(function() {});
+
+
 });
 (function($){
    $.fn.innerText = function(msg) {
