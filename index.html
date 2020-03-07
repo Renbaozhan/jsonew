@@ -243,7 +243,11 @@ $('.share').click(function(){
      })
     .error(function(data) {
         $('#hidden-message-box').show();
-        $('#hidden-message').html(data.responseText);
+        if (data.status<=400) {
+            $('#hidden-message').html(data.responseText);
+        } else {
+            $('#hidden-message').html("服务器升级中...此功能暂不可用.");
+        }
         setTimeout(function(){
             $('#hidden-message-box').hide();
         }, 3000);

@@ -38,16 +38,20 @@
 
   <div class="alert alert-warning alert-dismissible" role="alert" style="margin-bottom:0;padding:10px 2vw;font-size: calc(var(--target) + 4px);">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <p><i class="fa fa-bell" aria-hidden="true"></i>
+    <div><i class="fa fa-bell" aria-hidden="true"></i>
         隐私保护声明：<span id="privacy-declare">数据已经上传至Json.cn服务器，仅用于生成此链接，
             <span id="left-min" class="red">60分</span>
             <span id="left-sec" class="red">60秒</span>
-            后自动删除此数据，此链接内容将不可见</span>
+            后自动删除此数据，此链接内容将不可见。</span>
+
         <button data-loading-text="处理中..." role="button"
         class="btn btn-danger delete" style="background:#FF585D;font-size: calc(var(--target) + 4px);" href="#">
             立即删除
         </button>
-    </p>
+    </div>
+    <div><i class="fa fa-bell" aria-hidden="true"></i>
+        免责声明：为了确保数据安全，我们建议敏感机密数据不要使用此功能，使用后尽快手动删除数据</span>
+    </div>
   </div>
 <main class="row-fluid" style="height:85%;min-height:550px;">
 
