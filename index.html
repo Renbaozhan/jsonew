@@ -222,27 +222,43 @@ $('.clear').click(function(){
      $('#json-target').html('');
 });
 $('.share').click(function(){
-
-    var jqxhr = $.post("/shares/",{"content":current_json_str}, function(data) {
-          var k = data;
-    })
-    .success(function(data) {
-        window.location.href = "share.html?k="+data;
-            console.log(data);
-     })
-    .error(function(data) {
-        if (data.status<=400) {
-            $('#hidden-message').html(data.responseText);
+    $('#hidden-message-box').hide();
+    try {
+        var jqxhr = $.post("/shares/",{"content":current_json_str}, function(data) {
+              var k = data;
+        })
+        .success(function(data) {
+            window.location.href = "share.html?k="+data;
+         })
+        .error(function(data) {
+            $('#hidden-message-box').hide();
+            if (data.status<=400 && data.status>200) {
+                $('#hidden-message').html(data.responseText);
+            } else if (data.status > 400){
+                $('#hidden-message').html("服务器升级中...此功能暂不可用.");
+            }
             $('#hidden-message-box').show();
-        } else {
-            $('#hidden-message').html("服务器升级中...此功能暂不可用.");
+        }).done(function(data) {
+            $('#hidden-message-box').hide();
+            if (data.responseText != undefined) {
+                $('#hidden-message').html(data.responseText);
+            } else {
+                $('#hidden-message').html("服务器升级中...此功能暂不可用.");
+            }
             $('#hidden-message-box').show();
-        }
+        }).complete(function(data) {
+            $('#hidden-message-box').show();
+        });
+    } catch (e) {
+        $('#hidden-message-box').show();
+    } finally {
         setTimeout(function(){
             $('#hidden-message-box').hide();
         }, 3000);
-    })
-    .complete(function() {});
+    }
+
+
+
 });
 (function($){
    $.fn.innerText = function(msg) {
